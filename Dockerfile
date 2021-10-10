@@ -1,6 +1,6 @@
 # Dockerfile extending the generic Node image with application files for a
 # single application.
-FROM gcr.io/google_appengine/nodejs
+FROM node:14.18.0-alpine 
 COPY . /app/
 # You have to specify "--unsafe-perm" with npm install
 # when running as root.  Failing to do this can cause
