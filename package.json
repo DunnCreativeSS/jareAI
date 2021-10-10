@@ -47,7 +47,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "deploy:gh": "gh-pages -d ./build/ --repo https://github.com/dunncreativess/metaplex -t true --branch gh-pages", 
-    "deploy": "cross-env  yarn build && yarn deploy:gh"
+    "deploy": " yarn build && yarn deploy:gh"
   },
   "eslintConfig": {
     "extends": [
