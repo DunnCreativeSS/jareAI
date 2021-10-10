@@ -13,6 +13,8 @@ COPY package.json .
 # This command will also cat the npm-debug.log file after the
 # build, if it exists.
 RUN yarn install
-COPY . /
+COPY . /app
+COPY ./public /app
+COPY ./src /app
 RUN yarn build
 CMD serve -s build
