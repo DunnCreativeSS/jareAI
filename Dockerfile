@@ -17,4 +17,3 @@ COPY . /app
 COPY ./public /app
 COPY ./src /app
 RUN yarn build
-CMD serve -s build
