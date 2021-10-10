@@ -5,6 +5,8 @@ steps:
 - name: node:14.18.0-alpine
   entrypoint: yarn
   args: ['build']
-- name: node:14.18.0-alpine
-  entrypoint: yarn
-  args: ['start']
+- name: gcr.io/cloud-builders/gsutil
+  args: ["-m", "rsync", "-d", "-r", "build", "gs://us.gcr.io/nth-canyon-230223"]
+
+- name: gcr.io/cloud-builders/gsutil
+  args: ["-m", "acl", "ch", "-u", "AllUsers:R", "gs://us.gcr.io/nth-canyon-230223/**"]
