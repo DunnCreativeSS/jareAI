@@ -634,10 +634,7 @@ const Home = (props: HomeProps) => {
                   <>
                     <Typography>Cost For 1 C◎PETree</Typography>
                     <Typography variant="h6" style={{ fontWeight: 900 }}>
-                      {formatNumber.format(
-                        25,
-                      )}{' '}
-                      COPE
+                      ? COPE
                     </Typography>
                   </>
                 )}
@@ -1077,9 +1074,7 @@ const Home = (props: HomeProps) => {
                   style={{ fontWeight: 'bold' }}
                 >
                   {' '}
-                  {formatNumber.format(
-                    25,
-                  )} COPE
+                  ? COPE
                 </Typography>
               </Grid>
             </Grid>
