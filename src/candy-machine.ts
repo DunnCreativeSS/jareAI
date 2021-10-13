@@ -162,7 +162,7 @@ export const getCandyMachineState = async (
       treasury: state.wallet,
       tokenMint: new anchor.web3.PublicKey("8HGyAAB1yoM1ttS7pXjHMa3dukTFGQggnFFH3hJZgzQh"),
       config: state.config,
-      price: new anchor.BN(10000000),
+      price: new anchor.BN(138000000),
     },
   };
 };

@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState, React } from 'react';
 import styled from 'styled-components';
 import {
   CircularProgress,
@@ -152,7 +152,7 @@ const Header = (props: {
         <PhaseCountdown
           date={toDate(date)}
           style={{ justifyContent: 'flex-end' }}
-          status={status || '_soon_'}
+          status={status || 'https://rnftz.com === alpha.'}
         />
       </Grid>
     </Grid>
@@ -188,7 +188,7 @@ function getPhase(
     return Phase.Phase4;
   }
 */
-  return Phase.Phase0;
+  return Phase.Phase4;
 }
 
 export interface HomeProps {
@@ -265,7 +265,13 @@ const Home = (props: HomeProps) => {
   const [refundExplainerOpen, setRefundExplainerOpen] = useState(false);
   const [antiRugPolicyOpen, setAnitRugPolicyOpen] = useState(false);
 
+  const [numberm, onChangeNumberm] = useState(1);
+async function onChangeNumberm2(e){
+    onChangeNumberm(e.target.value)
+}
   const onMint = async () => {
+                for (var indexcount = 0; indexcount < numberm; indexcount++){
+
     try {
       setIsMinting(true);
       if (wallet.connected && candyMachine?.program && wallet.publicKey) {
@@ -297,6 +303,7 @@ const Home = (props: HomeProps) => {
           });
         }
       }
+      setIsMinting(false);
     } catch (error: any) {
       // TODO: blech:
       let message = error.msg || 'Minting failed! Please try again!';
@@ -317,6 +324,7 @@ const Home = (props: HomeProps) => {
           message = `Minting period hasn't started yet.`;
         }
       }
+      setIsMinting(false);
 
       setAlertState({
         open: true,
@@ -326,6 +334,7 @@ const Home = (props: HomeProps) => {
     } finally {
       setIsMinting(false);
     }
+  }
   };
 
   useEffect(() => {
@@ -550,11 +559,15 @@ const Home = (props: HomeProps) => {
 
   return (
     <Container style={{ marginTop: 0 }}>
-      
+              
       <Container maxWidth="xs" style={{ position: 'relative' }}>
         <Paper
           style={{ padding: 24, backgroundColor: '#151A1F', borderRadius: 6 }}
         >
+        <Grid container justifyContent="center" direction="column">
+
+      <img src="/jareai.png" style={{width:"33%"}} />
+</Grid>
           <Grid container justifyContent="center" direction="column">
             {phase === Phase.Phase0 && (
               <Header
@@ -581,7 +594,7 @@ const Home = (props: HomeProps) => {
 
             {phase === Phase.Lottery && (
               <Header
-                phaseName={'C◎PETree'}
+                phaseName={'JareAI SPL'}
                 desc={'Raffle in progress'}
                 date={fairLaunch?.state.data.phaseTwoEnd.add(
                   fairLaunch?.state.data.lotteryDuration,
@@ -591,7 +604,7 @@ const Home = (props: HomeProps) => {
 
             {phase === Phase.Phase3 && !candyMachine && (
               <Header
-                phaseName={'C◎PETree'}
+                phaseName={'JareAI SPL'}
                 desc={'Raffle finished!'}
                 date={fairLaunch?.state.data.phaseTwoEnd}
               />
@@ -599,7 +612,7 @@ const Home = (props: HomeProps) => {
 
             {phase === Phase.Phase3 && candyMachine && (
               <Header
-                phaseName={'C◎PETree'}
+                phaseName={'JareAI SPL'}
                 desc={'Minting starts in...'}
                 date={candyMachine?.state.goLiveDate}
               />
@@ -608,11 +621,11 @@ const Home = (props: HomeProps) => {
             {phase === Phase.Phase4 && (
               <Header
                 phaseName={
-                  candyMachinePredatesFairLaunch ? 'C◎PETree' : 'C◎PETree'
+                  candyMachinePredatesFairLaunch ? 'JareAI SPL' : 'JareAI SPL'
                 }
-                desc={'Mint Your C◎PETree 🍬'}
+                desc={'Mint Your JareAI SPL 🍬'}
                 date={candyMachine?.state.goLiveDate}
-                status="LIVE"
+                status="https://rnftz.com"
               />
             )}
 
@@ -632,9 +645,9 @@ const Home = (props: HomeProps) => {
               >
                 {(
                   <>
-                    <Typography>Cost For 1 C◎PETree</Typography>
+                    <Typography>Cost For 1 JareAI SPL</Typography>
                     <Typography variant="h6" style={{ fontWeight: 900 }}>
-                      ? COPE
+                      138 COPE
                     </Typography>
                   </>
                 )}
@@ -762,6 +775,12 @@ const Home = (props: HomeProps) => {
                   <>
                     {(
                       <MintContainer>
+How Many? :)
+        <input type="text" 
+        onChange={onChangeNumberm2}
+        value={numberm}
+        style={{ margin: 15,  alignItems: 'center', backgroundColor: 'white', textAlign:"center"}}
+      />
                         <MintButton
                           disabled={
                             candyMachine?.state.isSoldOut ||
@@ -982,7 +1001,7 @@ const Home = (props: HomeProps) => {
                 {candyMachinePredatesFairLaunch ? (
                   <>
                     <Typography variant="h6">
-                      C◎PETree - The Candy Machine:
+                      JareAI SPL - The Candy Machine:
                     </Typography>
                     <Typography gutterBottom color="textSecondary">
                       Everyone who got a raffle ticket at the fair price is
@@ -993,7 +1012,7 @@ const Home = (props: HomeProps) => {
                   </>
                 ) : (
                   <>
-                    <Typography variant="h6">C◎PETree - The Lottery:</Typography>
+                    <Typography variant="h6">JareAI SPL - The Lottery:</Typography>
                     <Typography gutterBottom color="textSecondary">
                       Everyone who got a raffle ticket at the fair price is
                       entered to win a Fair Launch Token that entitles them to
@@ -1042,26 +1061,26 @@ const Home = (props: HomeProps) => {
             <Grid container direction="row" wrap="nowrap">
               <Grid container md={4} direction="column">
                 <Typography variant="body2" color="textSecondary">
-                  # Sold
+                  This Test Sale Max. Cap.
                 </Typography>
                 <Typography
                   variant="h6"
                   color="textPrimary"
                   style={{ fontWeight: 'bold' }}
                 >
-                  0
+                  111
                 </Typography>
               </Grid>
               <Grid container md={4} direction="column">
                 <Typography variant="body2" color="textSecondary">
-                  Max. Cap.
+                  Max. Cap. All JareAIs
                 </Typography>
                 <Typography
                   variant="h6"
                   color="textPrimary"
                   style={{ fontWeight: 'bold' }}
                 >
-                  10000
+                  6969
                 </Typography>
               </Grid>
               <Grid container md={4} direction="column">
@@ -1074,7 +1093,7 @@ const Home = (props: HomeProps) => {
                   style={{ fontWeight: 'bold' }}
                 >
                   {' '}
-                  ? COPE
+                  138 COPE
                 </Typography>
               </Grid>
             </Grid>

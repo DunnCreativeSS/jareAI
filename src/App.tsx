@@ -80,7 +80,7 @@ const App = () => {
   // const wallet = useWallet();
   
   return (
-    <div  style={{ height: "850px", background: 'url("/bg.png") no-repeat center center fixed'}} >
+    <div  style={{ height: "1600px", background: 'url("/bg.png") no-repeat center center fixed'}} >
 <div style={{height:"25%"}} />
     <ThemeProvider theme={theme}>
       <ConnectionProvider endpoint={endpoint}>
